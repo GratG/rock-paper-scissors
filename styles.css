@@ -1,26 +1,46 @@
+body{
+    color: white;
+    background-color: black;
+}
 
 
-
-.header{
+#header{
     display: flex;
+    flex: 1;
     justify-content: center;
     margin: 3rem;
 }
+
+
+.choiceBtn{
+    border-radius: 8px;
+    font-size: 100px;
+    padding: 10px 15px;
+    text-align: center;
+    background-color:lightgrey;
+    border: 4px solid white;
+}
+
 
 .buttons{
     display: flex;
     flex: 1;
     justify-content: center;
     gap: 5rem;
+    margin-top: 5rem;
+  
 }
 
-.choices{
+
+
+#choices{
     display: flex;
     flex: 1;
+    justify-content: center;
     gap: 5rem;
     margin-top: 7.5rem;
-    justify-content: center;
 }
+
 
 .scores{
     display: flex;
