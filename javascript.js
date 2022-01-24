@@ -20,33 +20,37 @@ function computerPlay(){
     return(s);
 }
 
+
+
 function playRound(playerSelection, computerSelection){
-    console.log(pScore)
+    document.getElementById("player-choice").innerText = playerSelection.toUpperCase();
+    document.getElementById("computer-choice").innerText = computerSelection.toUpperCase();
     playerSelection = playerSelection.toLowerCase();
     if(playerSelection === "rock"){
-        if(computerSelection === "rock")    
-            return("Game is a draw!");
-        else if(computerSelection === "scissors")
-            return(pScore++);// Rock beats scissors
-        else
-            return(cScore++);// Paper beats rock
+        if(computerSelection === "scissors")
+            pScore++;// Rock beats scissors
+        else if (computerSelection === "paper")
+            cScore++;// Paper beats rock
     }
     if(playerSelection === "scissors"){
-        if(computerSelection === "scissors")    
-            return("Game is a draw!");
-        else if(computerSelection === "paper")
-            return(pScore++);// Scissors beats paper
-        else
-            return(cScore++);// Rock beats scissors
+        if(computerSelection === "paper")
+            pScore++;// Scissors beats paper
+        else if(computerSelection=== "rock")
+            cScore++;// Rock beats scissors
     }
     if(playerSelection === "paper"){
-        if(computerSelection === "paper")    
-            return("Game is a draw!");
-        else if(computerSelection === "rock")
-            return(pScore++);// Paper beats rock
-        else
-            return(cScore++);// Scissors beats paper
+        if(computerSelection === "rock")
+            pScore++;// Paper beats rock
+        else if(computerSelection === "scissors")
+            cScore++;// Scissors beats paper
     }
+    updateScores();//call update after scores are changed
+}
+
+function updateScores(){ //updates the scores of both the player and the computer
+    
+    document.getElementById("player-score").innerText = "Player score: " + pScore;  
+    document.getElementById("computer-score").innerText = "Computer score: " + cScore;
 }
 
 
@@ -59,5 +63,3 @@ const scissorsBtn = document.getElementById('scissorsBtn');
 rockBtn.addEventListener('click', () => playRound("rock", computerPlay())) //rock button calls playround function
 paperBtn.addEventListener('click', () => playRound("paper", computerPlay())) //paper button calls playround function
 scissorsBtn.addEventListener('click', () => playRound("scissors", computerPlay())) //scissor button calls playround function
-
-
